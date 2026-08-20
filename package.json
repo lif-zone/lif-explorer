@@ -1,6 +1,6 @@
 {
   "name": "lif-explorer",
-  "version": "2026.8.17",
+  "version": "2026.8.21",
   "scripts": {
     "dev-server": "babel-node dev-server.js",
     "prerender-server": "cd prerender-server && npm start",
