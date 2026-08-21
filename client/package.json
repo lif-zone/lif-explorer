@@ -35,6 +35,11 @@
     "superagent": "^6.1.0",
     "uglifyify": "^5.0.2"
   },
+  "lif": {
+    "transform": {
+      "./**/*.js": {"ext": ".jsx"}
+    }
+  },
   "browserify": {
     "transform": [
       "babelify",
