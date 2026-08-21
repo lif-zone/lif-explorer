@@ -1,22 +1,24 @@
-let langs = {
-  en: require('./en.json')
-, 'pt-pt': require('./pt-pt.json')
-, de: require('./de.json')
-, fr: require('./fr.json')
-, it: require('./it.json')
-, es: require('./es.json')
-, nl: require('./nl.json')
-, bg: require('./bg.json')
-, ru: require('./ru.json')
-, sr: require('./sr.json')
-, hr: require('./hr.json')
-, bs: require('./bs.json')
-, me: require('./me.json')
-, sv: require('./sv.json')
-, 'zh-cn': require('./zh-cn.json')
-, he: require('./he.json')
-, jp: require('./jp.json')
-, ko: require('./ko.json')
-}
+import en from './en.json';
+import pt_pt from './pt-pt.json';
+import de from './de.json';
+import fr from './fr.json';
+import it from './it.json';
+import es from './es.json';
+import nl from './nl.json';
+import bg from './bg.json';
+import ru from './ru.json';
+import sr from './sr.json';
+import hr from './hr.json';
+import bs from './bs.json';
+import me from './me.json';
+import sv from './sv.json';
+import zh_cn from './zh-cn.json';
+import he from './he.json';
+import jp from './jp.json';
+import ko from './ko.json';
 
-export default langs
+const langs = {
+  en, pt_pt, de, fr, it, es, nl, bg, ru, sr, hr, bs, me, sv, zh_ch, he, jp, ko};
+};
+
+export default langs;
