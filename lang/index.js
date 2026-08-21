@@ -18,6 +18,6 @@ import jp from './jp.json' with {type: 'json'};
 import ko from './ko.json' with {type: 'json'};
 
 const langs = {en, pt_pt, de, fr, it, es, nl, bg, ru, sr, hr, bs, me,
-  sv, zh_ch, he, jp, ko};
+  sv, zh_cn, he, jp, ko};
 
 export default langs;
