@@ -1,31 +1,63 @@
-export { Observable } from 'rxjs/Observable'
+import { Observable, merge, combineLatest, from, of, EMPTY, timer, fromEvent,
+  filter, map, mapTo, withLatestFrom, catchError, startWith, mergeMap,
+  scan, share, throttleTime, switchMap, distinctUntilChanged, first, skip,
+  concat, pluck, delay, shareReplay } from 'rxjs'
 
-import 'rxjs/add/observable/empty'
-import 'rxjs/add/observable/of'
-import 'rxjs/add/observable/merge'
-import 'rxjs/add/observable/combineLatest'
-import 'rxjs/add/observable/timer'
-import 'rxjs/add/observable/fromEvent'
-import 'rxjs/add/observable/from'
+// Static creation methods on Observable (RxJS 5/6 style)
+Observable.merge = (...args) => merge(...args)
+Observable.combineLatest = (...args) => {
+  const last = args[args.length-1]
+  if (typeof last=='function'){
+    const selector = args.pop()
+    return combineLatest(args).pipe(map(arr => selector(...arr)))
+  }
+  return combineLatest(args)
+}
+Observable.from = src => from(src)
+Observable.of = (...args) => of(...args)
+Observable.empty = () => EMPTY
+Observable.timer = (due, period) => period!=null ? timer(due, period) : timer(due)
+Observable.fromEvent = (el, event, opts) => fromEvent(el, event, opts)
 
-import 'rxjs/add/operator/filter'
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/mapTo'
-import 'rxjs/add/operator/withLatestFrom'
-import 'rxjs/add/operator/merge'
-import 'rxjs/add/operator/catch'
-import 'rxjs/add/operator/startWith'
-import 'rxjs/add/operator/mergeMap'
-import 'rxjs/add/operator/scan'
-import 'rxjs/add/operator/combineLatest'
-import 'rxjs/add/operator/share'
-import 'rxjs/add/operator/throttleTime'
-import 'rxjs/add/operator/switchMap'
-import 'rxjs/add/operator/distinctUntilChanged'
-import 'rxjs/add/operator/first'
-import 'rxjs/add/operator/skip'
-import 'rxjs/add/operator/concat'
-import 'rxjs/add/operator/pluck'
-import 'rxjs/add/operator/delay'
-import 'rxjs/add/operator/shareReplay'
+// Prototype operators (RxJS 5/6 chainable style)
+const proto = Observable.prototype
 
+proto.filter = function(fn){ return this.pipe(filter(fn)) }
+proto.map = function(fn){ return this.pipe(map(fn)) }
+proto.mapTo = function(v){ return this.pipe(mapTo(v)) }
+proto.withLatestFrom = function(...args){
+  const last = args[args.length-1]
+  if (typeof last=='function'){
+    const selector = args.pop()
+    return this.pipe(withLatestFrom(...args), map(arr => selector(...arr)))
+  }
+  return this.pipe(withLatestFrom(...args))
+}
+proto.catch = function(fn){ return this.pipe(catchError(fn)) }
+proto.startWith = function(...args){ return this.pipe(startWith(...args)) }
+proto.mergeMap = function(fn){ return this.pipe(mergeMap(fn)) }
+proto.flatMap = function(fn){ return this.pipe(mergeMap(fn)) }
+proto.scan = function(fn, ...args){ return this.pipe(scan(fn, ...args)) }
+proto.share = function(){ return this.pipe(share()) }
+proto.throttleTime = function(ms){ return this.pipe(throttleTime(ms)) }
+proto.switchMap = function(fn){ return this.pipe(switchMap(fn)) }
+proto.distinctUntilChanged = function(fn){
+  return fn ? this.pipe(distinctUntilChanged(fn)) : this.pipe(distinctUntilChanged())
+}
+proto.first = function(){ return this.pipe(first()) }
+proto.skip = function(n){ return this.pipe(skip(n)) }
+proto.concat = function(...args){ return concat(this, ...args) }
+proto.pluck = function(...paths){ return this.pipe(pluck(...paths)) }
+proto.delay = function(ms){ return this.pipe(delay(ms)) }
+proto.shareReplay = function(n){ return this.pipe(shareReplay(n)) }
+proto.merge = function(...args){ return merge(this, ...args) }
+proto.combineLatest = function(...args){
+  const last = args[args.length-1]
+  if (typeof last=='function'){
+    const selector = args.pop()
+    return combineLatest([this, ...args]).pipe(map(arr => selector(...arr)))
+  }
+  return combineLatest([this, ...args])
+}
+
+export { Observable }
