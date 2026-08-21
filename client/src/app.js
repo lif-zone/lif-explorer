@@ -1,4 +1,3 @@
-import '@babel/polyfill'
 import { Observable as O } from './rxjs'
 import {setAdapt} from '@cycle/run/lib/adapt';
 
