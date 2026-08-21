@@ -37,6 +37,9 @@
   "lif": {
     "transform": {
       "./**/*.js": {"type": "jsx"}
+    },
+    "peerDependencies": {
+      "lif-explorer": "github:lif-zone/lif-explorer"
     }
   },
   "browserify": {

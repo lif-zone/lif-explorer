@@ -1,7 +1,7 @@
 import createL10ns from 'basic-l10n'
 import browserLanguage from 'in-browser-language'
 
-const langs = require('../../lang/index')
+import langs from 'lif-explorer/lang/index';
 
 // use the plural form as the zero form
 Object.entries(langs).forEach(([ lang_id, strs ]) =>
@@ -10,11 +10,12 @@ Object.entries(langs).forEach(([ lang_id, strs ]) =>
   )
 )
 
-export default createL10ns(langs, { debug: console.error })
+const _default = createL10ns(langs, { debug: console.error })
+export default _default
 
-Object.entries(exports.default).forEach(([ lang_id, lang_t ]) =>  {
+Object.entries(_default).forEach(([ lang_id, lang_t ]) =>  {
   lang_t.lang_id = lang_id
-  lang_t.langs = exports.default
+  lang_t.langs = _default
 })
 
-export const defaultLang = process.browser ? browserLanguage.pick(Object.keys(exports.default), 'en') : 'en'
+export const defaultLang = process.browser ? browserLanguage.pick(Object.keys(_default), 'en') : 'en'
