@@ -29,4 +29,4 @@ import 'rxjs/add/operator/pluck'
 import 'rxjs/add/operator/delay'
 import 'rxjs/add/operator/shareReplay'
 
-module.exports = { Observable }
+export Observable;
