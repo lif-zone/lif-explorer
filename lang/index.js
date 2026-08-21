@@ -1,4 +1,4 @@
-module.exports = {
+let langs = {
   en: require('./en.json')
 , 'pt-pt': require('./pt-pt.json')
 , de: require('./de.json')
@@ -18,3 +18,5 @@ module.exports = {
 , jp: require('./jp.json')
 , ko: require('./ko.json')
 }
+
+export default langs
