@@ -37,7 +37,7 @@
   },
   "lif": {
     "transform": {
-      "./**/*.js": {"ext": ".jsx"}
+      "./**/*.js": {"type": "jsx"}
     }
   },
   "browserify": {
