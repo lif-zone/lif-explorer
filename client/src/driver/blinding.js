@@ -3,7 +3,7 @@ import * as libwally from '../lib/libwally'
 
 // Accepts a stream of blinding data strings, returns a stream of Unblinded
 // objects with a map from the commitments to the unblinded data
-module.exports = blinders_str$ =>
+export default blinders_str$ =>
   O.from(blinders_str$).flatMap(async blinders_str => {
     if (!blinders_str) return null
 

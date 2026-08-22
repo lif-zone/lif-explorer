@@ -2,6 +2,7 @@ import { Observable as O } from '../rxjs'
 
 const staticRoot = process.env.STATIC_ROOT || ''
 
+let exports;
 // check for WebRTC camera support
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
@@ -65,10 +66,12 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     cams.find(cam => cam.name && cam.name.includes('back'))
     || cams[0]
 
-  module.exports = makeScanDriver
+  exports = makeScanDriver
 }
 
 else {
   // if we don't have WebTC camera support, return a noop driver
-  module.exports = _ => _ => O.empty()
+  exports = _ => _ => O.empty()
 }
+
+export default exports;
