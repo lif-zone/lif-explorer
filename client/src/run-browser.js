@@ -30,6 +30,7 @@ try {
   storageDriver = _ => ({ local: { getItem: key => O.of(null) } })
 }
 
+import snabbdom_pragma from 'snabbdom-pragma';
 function index_html(){
   // add stylesheet
   let link = document.createElement('link');
@@ -40,6 +41,10 @@ function index_html(){
   let div = document.createElement('div');
   div.id = 'explorer';
   document.body.appendChild(div);
+  globalThis.React = {createElement: h};
+  // init rxjs
+  console.log(snabbdom_pragma);
+  globalThis.React = snabbdom_pragma;
 }
 index_html();
 
