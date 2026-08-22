@@ -34,6 +34,8 @@
     "uglifyify": "^5.0.2"
   },
   "lif": {
+    "webapp": "./run-browser.js",
+    "x webapp": "./index.html",
     "transform": {
       "./**/*.js": {"type": "jsx"}
     },
