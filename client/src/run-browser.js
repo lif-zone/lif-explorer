@@ -35,7 +35,7 @@ function index_html(){
   // add stylesheet
   let link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = '/style.css';
+  link.href = 'style.css';
   document.head.appendChild(link);
   // add explorer div
   let div = document.createElement('div');
