@@ -19,7 +19,7 @@ const parseQuery = loc => {
   return query
 }
 
-module.exports = history => goto$ => {
+export default history => goto$ => {
   const history$ = O.from(history(goto$.map(goto => isStr(goto) ? { type: 'push', pathname: goto } : goto)))
     .map(loc =>({...loc, pathname: stripBase(loc.pathname), query: parseQuery(loc) }))
 
