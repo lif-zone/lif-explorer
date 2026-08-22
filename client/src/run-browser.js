@@ -30,6 +30,19 @@ try {
   storageDriver = _ => ({ local: { getItem: key => O.of(null) } })
 }
 
+function index_html(){
+  // add stylesheet
+  let link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = import.meta.resolve('./style.css');
+  document.head.appendChild(link);
+  // add explorer div
+  let div = document.createElement('div');
+  div.id = 'explorer';
+  document.body.appendChild(div);
+}
+index_html();
+
 run(main, {
   DOM: makeDOMDriver('#explorer')
 , HTTP: makeHTTPDriver()
