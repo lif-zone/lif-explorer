@@ -39,7 +39,8 @@
     },
     "overrides": {
       "has-symbols": "^1.1.0",
-      "which-typed-array": "^1.1.22"
+      "which-typed-array": "^1.1.22",
+      "is-typed-array": "^1.1.15"
     },
     "peerDependencies": {
       "lif-explorer": "github:lif-zone/lif-explorer"
