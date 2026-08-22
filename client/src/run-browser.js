@@ -42,7 +42,6 @@ function index_html(){
   div.id = 'explorer';
   document.body.appendChild(div);
   // init rxjs
-  console.log(snabbdom_pragma);
   globalThis.React = snabbdom_pragma;
 }
 index_html();
