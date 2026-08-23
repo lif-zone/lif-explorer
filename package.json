@@ -29,7 +29,7 @@
       "/.index": "./public/.index"
     },
     "exports": {
-      "./font/inconsolata/*": "typeface-inconsolata/*"
+      "./www/font/inconsolata/*": "typeface-inconsolata/*"
     },
     "dependencies": {
       "lif-explorer": "github:lif-zone/lif-explorer",
