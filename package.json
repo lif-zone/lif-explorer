@@ -20,12 +20,16 @@
       "./client/**/*.js": {"type": "jsx"}
     },
     "web_exports": {
+      "/font/inconsolata": "typeface-inconsolata",
       "/font/": "./www/font/",
       "/img/": "./www/img/",
       "/js/": "./www/js/",
       "/style.css": "./www/style.css",
       "/instascan.min.js": "./www/instascan.min.js",
       "/.index": "./public/.index"
+    },
+    "exports": {
+      "./font/inconsolata/*": "typeface-inconsolata/*"
     },
     "dependencies": {
       "lif-explorer": "github:lif-zone/lif-explorer",
