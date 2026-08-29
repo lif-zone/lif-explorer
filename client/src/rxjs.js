@@ -13,7 +13,15 @@ Observable.combineLatest = (...args) => {
   }
   return combineLatest(args)
 }
-Observable.from = src => from(src)
+Observable.from = src => {
+  if (src && typeof src.addListener=='function')
+    return new Observable(observer => {
+      const listener = { next: v=>observer.next(v), error: e=>observer.error(e), complete: ()=>observer.complete() }
+      src.addListener(listener)
+      return ()=>src.removeListener(listener)
+    })
+  return from(src)
+}
 Observable.of = (...args) => of(...args)
 Observable.empty = () => EMPTY
 Observable.timer = (due, period) => period!=null ? timer(due, period) : timer(due)
