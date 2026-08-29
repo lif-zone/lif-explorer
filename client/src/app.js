@@ -632,6 +632,9 @@ export default function main({ DOM, HTTP, route, storage, scanner: scan$, search
       , assetMap$,  goAssetList$, assetList$
       , req$, reply$: dropErrors(HTTP_select()).map(r => [ r.request.category, r.req.method, r.req.url, r.body||r.text, r ]) })
 
+  req$.subscribe(r => console.log('req', r))                                                                                                         
+  goHome$.subscribe(x => console.log('goHome', x))
+
   // @XXX side-effects outside of drivers
   if (process.browser) {
 
