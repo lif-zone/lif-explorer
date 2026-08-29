@@ -1,4 +1,4 @@
-import { Observable as O } from '../rxjs'
+import { Observable as O, shareReplay } from 'rxjs'
 
 export default function makeHTTPDriver(){
   return function httpDriver(req$){
@@ -27,8 +27,9 @@ export default function makeHTTPDriver(){
           })
           .catch(e => { e.request = req; observer.error(e) })
       })
-      r$.request = req
-      return r$
+      const shared$ = r$.pipe(shareReplay(1))
+      shared$.request = req
+      return shared$
     }).share()
 
     return {
