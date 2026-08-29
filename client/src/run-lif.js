@@ -1,4 +1,4 @@
-process.env.API_URL='/blockstream/api';
+process.env.API_URL='/blockstream';
 
 await import('./run-browser.js');
 
