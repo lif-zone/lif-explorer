@@ -123,10 +123,10 @@ export const combine = obj => {
     , (...xs) => xs.reduce((o, x, i) => (o[keys[i]] = x, o), {}))
 }
 
-export const dropErrors = r$$ => r$$.switchMap(r$ => r$.catch(_ => O.empty()))
+export const dropErrors = r$$ => r$$.switchMap(r$ => O.from(r$).catch(_ => O.empty()))
 
 export const extractErrors = r$$ =>
-  r$$.flatMap(r$ => r$.flatMap(_ => O.empty()).catch(err => O.of(err)))
+  r$$.flatMap(r$ => O.from(r$).flatMap(_ => O.empty()).catch(err => O.of(err)))
     .map(e => e.response ? responseError(e.response) : e)
 
 // Create a stream that ticks every `ms`, but only when the window is focused.

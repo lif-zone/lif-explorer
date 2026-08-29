@@ -14,11 +14,18 @@ Observable.combineLatest = (...args) => {
   return combineLatest(args)
 }
 Observable.from = src => {
-  if (src && typeof src.addListener=='function')
+  if (!src)
+    return from(src)
+  if (typeof src.addListener=='function') // xstream
     return new Observable(observer => {
       const listener = { next: v=>observer.next(v), error: e=>observer.error(e), complete: ()=>observer.complete() }
       src.addListener(listener)
       return ()=>src.removeListener(listener)
+    })
+  if (typeof src.subscribe=='function') // RxJS 5 / ObservableBase
+    return new Observable(observer => {
+      const sub = src.subscribe(v=>observer.next(v), e=>observer.error(e), ()=>observer.complete())
+      return ()=>sub.unsubscribe()
     })
   return from(src)
 }

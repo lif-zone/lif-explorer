@@ -117,12 +117,12 @@ export const trackPendingBlockTemplateEvent = (previous, event) => {
 }
 
 export default function main({ DOM, HTTP, route, storage, scanner: scan$, search: searchResult$, blinding: unblinded$ }) {
-  const
+  const HTTP_select = cat => O.from(HTTP.select(cat))
 
-    reply = (cat, raw) => dropErrors(HTTP.select(cat)).map(r => raw ? r : (r.body || r.text))
+  , reply = (cat, raw) => dropErrors(HTTP_select(cat)).map(r => raw ? r : (r.body || r.text))
   , recoverableReply = cat => O.merge(
         reply(cat).map(value => ({ value, succeeded: true }))
-      , extractErrors(HTTP.select(cat)).mapTo({ succeeded: false }))
+      , extractErrors(HTTP_select(cat)).mapTo({ succeeded: false }))
       .scan((state, result) => result.succeeded
           ? { value: result.value, error: false }
           : { ...state, error: true }
@@ -204,7 +204,7 @@ export default function main({ DOM, HTTP, route, storage, scanner: scan$, search
 
   /// Model
 
-  , error$ = extractErrors(HTTP.select().filter(r$ => !r$.request.bg))
+  , error$ = extractErrors(HTTP_select().filter(r$ => !r$.request.bg))
       .merge(searchResult$.filter(found => !found).mapTo('No results found'))
 
   , tipHeight$ = reply('tip-height', true).map(res => +res.text)
@@ -220,7 +220,7 @@ export default function main({ DOM, HTTP, route, storage, scanner: scan$, search
     )
 
   // Keep track of the number of active in-flight HTTP requests
-  , loading$ = HTTP.select().filter(r$ => !r$.request.bg)
+  , loading$ = HTTP_select().filter(r$ => !r$.request.bg)
       .flatMap(r$ => r$.mapTo(-1).catch(_ => O.of(-1)).startWith(+1))
       .merge(goSearch$.mapTo(+1)).merge(searchResult$.mapTo(-1))
       .startWith(0).scan((N, a) => N+a)
@@ -386,7 +386,7 @@ export default function main({ DOM, HTTP, route, storage, scanner: scan$, search
   , assetMap$ = !process.env.ASSET_MAP_URL ? O.of({}) :
       reply('asset-map')
         // use an empty object if the map fails loading for any reason
-        .merge(extractErrors(HTTP.select('asset-map')).mapTo({}))
+        .merge(extractErrors(HTTP_select('asset-map')).mapTo({}))
 
   // Assets List State
   , assetList$ = !process.env.IS_ELEMENTS ? O.empty() :
@@ -630,7 +630,7 @@ export default function main({ DOM, HTTP, route, storage, scanner: scan$, search
       , tipHeight$, error$, loading$
       , goSearch$, searchResult$, copy$, store$, navto$, scanning$, scan$, selectBlockGridTx$
       , assetMap$,  goAssetList$, assetList$
-      , req$, reply$: dropErrors(HTTP.select()).map(r => [ r.request.category, r.req.method, r.req.url, r.body||r.text, r ]) })
+      , req$, reply$: dropErrors(HTTP_select()).map(r => [ r.request.category, r.req.method, r.req.url, r.body||r.text, r ]) })
 
   // @XXX side-effects outside of drivers
   if (process.browser) {
