@@ -1,6 +1,4 @@
-import _request from 'superagent'
-let x = _request;
-let request = fetch;
+import request from 'superagent'
 import { tryUnconfidentialAddress, isHash256 } from '../util'
 import { Observable as O } from '../rxjs'
 
