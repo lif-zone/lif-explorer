@@ -1,4 +1,4 @@
-import request as _request from 'superagent'
+import _request from 'superagent'
 let x = _request;
 let request = fetch;
 import { tryUnconfidentialAddress, isHash256 } from '../util'
