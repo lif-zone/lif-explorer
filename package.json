@@ -14,7 +14,7 @@
   "license": "MIT",
   "browserslist": "> 0.5%",
   "lif": {
-    "webapp": "./client/src/run-browser.js",
+    "webapp": "./client/src/run-lif.js",
     "x webapp": "./client/index.html",
     "transform": {
       "./client/**/*.js": {"type": "jsx"}
