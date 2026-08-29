@@ -10,6 +10,7 @@ import { Observable as O } from './rxjs'
 
 import main from './app'
 
+process.env.API_URL='/blockstream/api';
 const apiBase = (process.env.API_URL || '/api').replace(/\/+$/, '')
     , webBase = process.env.BASE_HREF || '/'
     , initTitle = process.browser ? document.title : process.env.SITE_TITLE
