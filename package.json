@@ -37,7 +37,7 @@
       "@cycle/dom": "^22.8.0",
       "@cycle/history": "^7.4.0",
       "@cycle/html": "^3.4.0",
-      "@cycle/http": "^15.4.0",
+      "@cycle/http": "npm:@cycle/fetch@^4.0.0",
       "@cycle/rxjs-run": "^10.5.0",
       "@cycle/storage": "^5.1.2",
       "babelify": "^10.0.0",
