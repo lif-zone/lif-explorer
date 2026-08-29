@@ -1,5 +1,5 @@
 import run from '@cycle/rxjs-run'
-import { makeFetchDriver } from '@cycle/fetch'
+import makeHTTPDriver from './driver/http'
 import { makeDOMDriver } from '@cycle/dom'
 import { makeHistoryDriver, captureClicks } from '@cycle/history'
 import makeRouteDriver from './driver/route'
@@ -48,7 +48,7 @@ index_html();
 
 run(main, {
   DOM: makeDOMDriver('#explorer')
-, HTTP: makeFetchDriver()
+, HTTP: makeHTTPDriver()
 , route: makeRouteDriver(captureClicks(makeHistoryDriver({ basename: webBase })))
 , storage: storageDriver
 , search: makeSearchDriver(apiBase)
