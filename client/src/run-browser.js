@@ -30,22 +30,6 @@ try {
   storageDriver = _ => ({ local: { getItem: key => O.of(null) } })
 }
 
-import snabbdom_pragma from 'snabbdom-pragma';
-function index_html(){
-  // add stylesheet
-  let link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'style.css';
-  document.head.appendChild(link);
-  // add explorer div
-  let div = document.createElement('div');
-  div.id = 'explorer';
-  document.body.appendChild(div);
-  // init rxjs
-  globalThis.React = snabbdom_pragma;
-}
-index_html();
-
 run(main, {
   DOM: makeDOMDriver('#explorer')
 , HTTP: makeHTTPDriver()
