@@ -32,7 +32,6 @@
       "./www/font/inconsolata/*": "npm:typeface-inconsolata/*"
     },
     "dependencies": {
-      "lif-explorer": "github:lif-zone/lif-explorer",
       "@babel/plugin-transform-react-jsx": "^7.12.11",
       "@cycle/dom": "^22.8.0",
       "@cycle/history": "^7.4.0",
