@@ -1,5 +1,5 @@
 import run from '@cycle/rxjs-run'
-import makeHTTPDriver from './driver/http'
+import { makeHTTPDriver } from '@cycle/http'
 import { makeDOMDriver } from '@cycle/dom'
 import { makeHistoryDriver, captureClicks } from '@cycle/history'
 import makeRouteDriver from './driver/route'
