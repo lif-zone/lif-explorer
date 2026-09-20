@@ -1,7 +1,7 @@
 import createL10ns from 'basic-l10n'
 import browserLanguage from 'in-browser-language'
 
-import langs from 'lif-explorer/lang/index';
+import langs from '../../lang/index';
 
 // use the plural form as the zero form
 Object.entries(langs).forEach(([ lang_id, strs ]) =>
