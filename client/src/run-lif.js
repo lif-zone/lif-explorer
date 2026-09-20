@@ -1,6 +1,5 @@
-process.env.API_URL='https://blockstream.info/api';
-//process.env.API_URL=location.origin+'/.lif.net/blockstream';
-process.env.DEBUG='stream';
+//process.env.API_URL='https://blockstream.info/api';
+process.env.API_URL=location.origin+'/.lif.net/blockstream';
 
 // init rxjs
 import {createElement} from 'snabbdom-pragma';
@@ -9,7 +8,6 @@ function _createElement(tag, data, ...children){
   let filtered = children.filter(c => c!=='');
   return createElement(tag, data, ...filtered);
 }
-
 globalThis.React = {
   createElement: _createElement,
   Fragment: 'fragment',
