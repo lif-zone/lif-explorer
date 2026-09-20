@@ -1,0 +1,9 @@
+
+---
+USER:
+Debugging lif-explorer: blocks/transactions stuck in loading state. snabbdom removeChild crash with {text:"", elm:undefined} on children.
+
+CLAUDE:
+Fixed two bugs in lif-explorer (served by LIF service worker):
+1. HTTP requests not going out: lif-kernel ast.js detects dynamic `import * as X` member access, kernel.js rewrites binding and injects `import_cjs_namespace` call; boot.js adds `import_cjs_namespace` to unwrap LIF CJS wrappers. Fixed superagent namespace issue in @cycle/http.
+2. snabbdom vnode crash: snabbdom-pragma.createElement("p", data, "") produces both text:"" AND children:[{text:""}] on the vnode, which snabbdom patchVnode cannot handle. Fixed in run-lif.js by wrapping createElement to filter out empty string children before passing to snabbdom-pragma.
