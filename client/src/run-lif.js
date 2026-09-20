@@ -1,8 +1,19 @@
 process.env.API_URL='https://blockstream.info/api';
+//process.env.API_URL=location.origin+'/.lif.net/blockstream';
+process.env.DEBUG='stream';
 
-import snabbdom_pragma from 'snabbdom-pragma';
 // init rxjs
-globalThis.React = snabbdom_pragma;
+import {createElement} from 'snabbdom-pragma';
+function _createElement(tag, data, ...children){                                                                                                     
+  // snabbdom needs empty elements filtered out
+  let filtered = children.filter(c => c!=='');
+  return createElement(tag, data, ...filtered);
+}
+
+globalThis.React = {
+  createElement: _createElement,
+  Fragment: 'fragment',
+};
 
 function index_html(){
   // add stylesheet
