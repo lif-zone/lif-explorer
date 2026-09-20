@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.12.11",
+    "@babel/polyfill": "^7.12.1",
     "@cycle/dom": "^22.8.0",
     "@cycle/history": "^7.4.0",
     "@cycle/html": "^3.4.0",
@@ -28,25 +29,11 @@
     "jquery": "^3.5.1",
     "path-to-regexp": "^6.2.0",
     "qrcode": "^1.4.4",
-    "rxjs": "^7.8.1",
+    "rxjs": "^6.6.3",
+    "rxjs-compat": "^6.6.3",
     "snabbdom-pragma": "^2.8.0",
     "superagent": "^6.1.0",
     "uglifyify": "^5.0.2"
-  },
-  "lif": {
-    "webapp": "./src/run-browser.js",
-    "x webapp": "./index.html",
-    "transform": {
-      "./**/*.js": {"type": "jsx"}
-    },
-    "overrides": {
-      "has-symbols": "^1.1.0",
-      "which-typed-array": "^1.1.22",
-      "is-typed-array": "^1.1.15"
-    },
-    "peerDependencies": {
-      "lif-explorer": "github:lif-zone/lif-explorer"
-    }
   },
   "browserify": {
     "transform": [
