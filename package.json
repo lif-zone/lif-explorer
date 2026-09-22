@@ -58,6 +58,36 @@
       "snabbdom-pragma": "^2.8.0",
       "superagent": "^6.1.0",
       "uglifyify": "^5.0.2"
+    },
+    "patches": {
+      "@cycle/run": {
+        "./package.json": {
+          "json": {
+            "exports": {
+              "./lib/*": "./lib/es6/*"
+            }
+          }
+        }
+      },
+      "rxjs": {
+        "./package.json": {
+          "json": {
+            "exports": {
+              "./operators": "./_esm5/operators",
+              "./internal-compatibility": "./_esm5/internal-compatibility"
+            }
+          }
+        }
+      },
+      "snabbdom": {
+        "./package.json": {
+          "json": {
+            "exports": {
+              "./*": "./es/*"
+            }
+          }
+        }
+      }
     }
   },
   "overrides": {
