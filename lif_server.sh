@@ -8,4 +8,4 @@ export API_URL=http://localhost:1842/.lif.net/blockstream/
 #export PORT=1807
 #export API_URL=https://blockstream.info/api/
 
-npx babel-node dev-server.js
+babel-node dev-server.js

@@ -1,12 +1,12 @@
 {
-  "name": "esplora",
-  "version": "0.1.0",
+  "name": "lif-explorer",
+  "version": "2026.8.21",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "esplora",
-      "version": "0.1.0",
+      "name": "lif-explorer",
+      "version": "2026.8.21",
       "hasInstallScript": true,
       "license": "MIT",
       "dependencies": {
