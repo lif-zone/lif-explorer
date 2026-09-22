@@ -1,45 +1,31 @@
-export { Observable } from 'rxjs/Observable'
+export { Observable } from 'rxjs-compat/_esm5/Observable'
 
-import 'rxjs/add/observable/empty'
-import 'rxjs/add/observable/of'
-import 'rxjs/add/observable/merge'
-import 'rxjs/add/observable/combineLatest'
-import 'rxjs/add/observable/timer'
-import 'rxjs/add/observable/fromEvent'
-import 'rxjs/add/observable/from'
+import 'rxjs-compat/_esm5/add/observable/empty'
+import 'rxjs-compat/_esm5/add/observable/of'
+import 'rxjs-compat/_esm5/add/observable/merge'
+import 'rxjs-compat/_esm5/add/observable/combineLatest'
+import 'rxjs-compat/_esm5/add/observable/timer'
+import 'rxjs-compat/_esm5/add/observable/fromEvent'
+import 'rxjs-compat/_esm5/add/observable/from'
 
-import 'rxjs/add/operator/filter'
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/mapTo'
-import 'rxjs/add/operator/withLatestFrom'
-import 'rxjs/add/operator/merge'
-import 'rxjs/add/operator/catch'
-import 'rxjs/add/operator/startWith'
-import 'rxjs/add/operator/mergeMap'
-import 'rxjs/add/operator/scan'
-import 'rxjs/add/operator/combineLatest'
-import 'rxjs/add/operator/share'
-import 'rxjs/add/operator/throttleTime'
-import 'rxjs/add/operator/switchMap'
-import 'rxjs/add/operator/distinctUntilChanged'
-import 'rxjs/add/operator/first'
-import 'rxjs/add/operator/skip'
-import 'rxjs/add/operator/concat'
-import 'rxjs/add/operator/pluck'
-import 'rxjs/add/operator/delay'
-import 'rxjs/add/operator/shareReplay'
-
-// Fix rxjs-compat 6.6.7: lift on base Observable must create compat instances
-// so compat operator patches are available on the result.
-// In 6.6.3, _Compat === _Base (no-op). In 6.6.7, they differ.
-import {Observable as _Compat} from 'rxjs/Observable';
-import {Observable as _Base} from 'rxjs/internal/Observable';
-if (_Compat!==_Base){
-  _Base.prototype.lift = function(operator){
-    const obs = new _Compat();
-    obs.source = this;
-    obs.operator = operator;
-    return obs;
-  }
-}
+import 'rxjs-compat/_esm5/add/operator/filter'
+import 'rxjs-compat/_esm5/add/operator/map'
+import 'rxjs-compat/_esm5/add/operator/mapTo'
+import 'rxjs-compat/_esm5/add/operator/withLatestFrom'
+import 'rxjs-compat/_esm5/add/operator/catch'
+import 'rxjs-compat/_esm5/add/operator/startWith'
+import 'rxjs-compat/_esm5/add/operator/mergeMap'
+import 'rxjs-compat/_esm5/add/operator/scan'
+import 'rxjs-compat/_esm5/add/operator/combineLatest'
+import 'rxjs-compat/_esm5/add/operator/share'
+import 'rxjs-compat/_esm5/add/operator/throttleTime'
+import 'rxjs-compat/_esm5/add/operator/switchMap'
+import 'rxjs-compat/_esm5/add/operator/distinctUntilChanged'
+import 'rxjs-compat/_esm5/add/operator/first'
+import 'rxjs-compat/_esm5/add/operator/skip'
+import 'rxjs-compat/_esm5/add/operator/concat'
+import 'rxjs-compat/_esm5/add/operator/pluck'
+import 'rxjs-compat/_esm5/add/operator/delay'
+import 'rxjs-compat/_esm5/add/operator/shareReplay'
+import 'rxjs-compat/_esm5/add/operator/merge'
 
