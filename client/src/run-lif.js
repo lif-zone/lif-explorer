@@ -1,5 +1,8 @@
 //process.env.API_URL='https://blockstream.info/api';
 process.env.API_URL=location.origin+'/.lif.net/blockstream';
+process.env.BASE_HREF='/';
+process.env.STATIC_ROOT='/';
+process.browser = true;
 
 // init rxjs
 import {createElement} from 'snabbdom-pragma';
@@ -19,6 +22,9 @@ function index_html(){
   link.rel = 'stylesheet';
   link.href = 'style.css';
   document.head.appendChild(link);
+  let base = document.createElement('base');
+  base.href = process.env.STATIC_ROOT;
+  document.head.appendChild(base);
   // add explorer div
   let div = document.createElement('div');
   div.id = 'explorer';
