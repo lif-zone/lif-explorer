@@ -17,14 +17,15 @@ globalThis.React = {
 };
 
 function index_html(){
+  // set base
+  let base = document.createElement('base');
+  base.href = process.env.STATIC_ROOT;
+  document.head.appendChild(base);
   // add stylesheet
   let link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = 'style.css';
   document.head.appendChild(link);
-  let base = document.createElement('base');
-  base.href = process.env.STATIC_ROOT;
-  document.head.appendChild(base);
   // add explorer div
   let div = document.createElement('div');
   div.id = 'explorer';
