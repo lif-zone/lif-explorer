@@ -1,7 +1,8 @@
 //process.env.API_URL='https://blockstream.info/api';
-process.env.API_URL=location.origin+'/.lif.net/blockstream';
-process.env.BASE_HREF='/';
-process.env.STATIC_ROOT='/';
+process.env.API_URL = location.origin+'/.lif.net/blockstream';
+process.env.BASE_HREF = '/';
+process.env.STATIC_ROOT = '/';
+process.env.NATIVE_ASSET_LABEL = 'BTC';
 process.browser = true;
 
 // init rxjs
