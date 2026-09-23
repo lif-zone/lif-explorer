@@ -2,7 +2,7 @@
 process.env.API_URL = location.origin+'/.lif.net/blockstream';
 process.env.BASE_HREF = '/';
 process.env.STATIC_ROOT = '/';
-process.env.NATIVE_ASSET_LABEL = 'BTC';
+process.env.NATIVE_ASSET_LABEL = 'LIF';
 process.browser = true;
 
 // init rxjs
