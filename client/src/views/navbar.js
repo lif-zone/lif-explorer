@@ -5,9 +5,15 @@ const staticRoot = process.env.STATIC_ROOT || ''
 export default S =>
 
   <nav className="container nav-container">
-      <a className="navbar-brand" href=".">
-        <img src={`${staticRoot}img/icons/logo.svg`}></img>
-      </a>
+      <div className="nav-brands">
+        <a className="navbar-brand" href=".">
+          <img src={`${staticRoot}img/icons/logo.svg`}></img>
+        </a>
+        <a className="lif-brand" href=".">
+          <img src={`${staticRoot}img/lif.svg`}></img>
+          <span>Lifcoin</span>
+        </a>
+      </div>
         <div className="sub-nav font-h5">
             <a href="." class={{ active: S.activeTab == 'dashBoard' }}>Dashboard</a>
             <a href="blocks/recent" class={{ active: S.activeTab == 'recentBlocks' }}>Blocks</a>

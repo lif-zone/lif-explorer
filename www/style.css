@@ -742,6 +742,27 @@ a, a:link, a:visited, a:hover, a:focus {
 
 /** New Design Ends **/
 
+.nav-brands {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lif-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #fafafa;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.lif-brand img {
+  height: 32px;
+  width: auto;
+}
+
 .navbar-brand {
   height: 50px;
 }
