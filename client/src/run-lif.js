@@ -5,6 +5,8 @@ process.env.STATIC_ROOT = '/';
 process.env.NATIVE_ASSET_LABEL = 'LIF';
 process.browser = true;
 
+import buffer from 'buffer';
+globalThis.Buffer = buffer.Buffer;
 // init rxjs
 import {createElement} from 'snabbdom-pragma';
 function _createElement(tag, data, ...children){                                                                                                     

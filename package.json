@@ -45,6 +45,7 @@
       "browserify-package-json": "^1.0.1",
       "bs58check": "^2.1.2",
       "bundle-collapser": "^1.4.0",
+      "buffer": "^6.0.3",
       "debug": "^4.3.1",
       "envify": "^4.1.0",
       "fmtbtc": "0.0.3",
